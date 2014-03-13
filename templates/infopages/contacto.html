@@ -1,0 +1,25 @@
+{% extends "panel.html" %}
+
+{% block contenido %}
+    <div class="row ">
+        <div class="col-lg-8 col-md-8" id='tour'>
+            <h2>Contacto</h2>
+            <form action='/contacto' method='POST'>
+                {% csrf_token %}
+
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+                <p class="lead">Ingrese su Pregunta o Inquietud</p>
+                {{ contacto.as_p }}
+
+                <button type="submit"class="btn btn-success">Enviar Mensaje</button>
+            </form>
+        </div>
+
+
+
+    </div>
+{% endblock %}

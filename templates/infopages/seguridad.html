@@ -1,0 +1,44 @@
+{% extends "panel.html" %}
+
+{% block contenido %}
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>3 Niveles de Seguridad a Escoger.</h2>
+            <div class="row">
+                <p class="lead col-lg-8 col-md-8">La Seguridad representa un compromiso entre
+                    usabilidad y eficiencia. Con nuestros tres (3) Niveles de Seguridad Ud. puede escoger
+                    el que mejor se adapte a sus necesidades.</p>
+            </div>
+
+            <div class="row tiposseguridad">
+                <div class="col-lg-4 col-md-4">
+                    <img src="/static/img/pistol.png"/>
+                    <h4>Seguridad B&aacute;sica</h4>
+                    <p class="text-muted">En cada operaci&oacute;n le solicitar&aacute; la clave nuevamente.</p>
+                    <p>Deber&aacute; confirmar su clave de acceso cada vez que realice una operaci&oacute;n. Esta es
+                    la configuraci&oacute;n por defecto, Ud. podr&aacute; cambiarla posteriormente.</p>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <img src="/static/img/sniper_rifle.png"/>
+                    <h4>Seguridad Avanzada</h4>
+                    <p class="text-muted">Adicional a la clave tendr&aacute; un PIN de 6 d&iacute;gitos para confirmar.</p>
+                    <p>Adicional a la clave de su cuenta puede establecer un c&oacute;digo de 6 d&icute;gitos que le ser&acute;
+                    solicitado cada vez que realice un pago. Este c&ocute;digo deber&acute; ser cambiado cada pocos d&icute;as
+                    y le llegara a su tel&ecute;fono celular como un mensaje SMS.</p>
+                    <p><code>Esta funcionalidad pronto estara disponible</code></p>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <img src="/static/img/gatling_gun.png"/>
+                    <h4>Seguridad Maxima</h4>
+                    <p class="text-muted">Debe utilizar Firma Electr&ocute;nica para autorizar los pagos.</p>
+                    <p>Utilizando esta tecnolog&icute;a Ud. tiene la completa seguridad de que ninguna operaci&ocute;n
+                    de pago se realice si no se Firma Electr&ocute;nicamente la misma con su Token de Seguridad
+                    </p>
+                    <p><code>Esta funcionalidad pronto estara disponible</code></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

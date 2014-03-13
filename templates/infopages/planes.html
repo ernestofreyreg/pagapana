@@ -1,0 +1,27 @@
+{% extends "panel.html" %}
+
+{% block contenido %}
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>Tarifa plana.</h2>
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <p class="lead">Por cada pago o transacci&oacute;n realizada se cobra una tarifa fija que estar&aacute; sujeta
+                        a revisi&oacute;n peri&oacute;dica y comunicada por todos los canales de informaci&oacute;n correspondientes.</p>
+                    <p>En estos momentos la tarifa es de:</p>
+                    <p class="tarifa">
+                        $0.25
+                    </p>
+                    <p class="text-muted">Por operaci&oacute;n de pago</p>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <h4>Ejemplos</h4>
+                    <p>Si Ud. paga mediante PAGAPANA a otra persona <code>$10.00</code> entonces
+                    el vendedor recibe <code>$9.75</code></p>
+                    <p>Si Ud. vende algo y le pone como precio <code>$2.99</code> entonces su cliente
+                    al pagar este valor Ud. recibe <code>$2.74</code></p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

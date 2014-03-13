@@ -1,0 +1,83 @@
+{% extends "panel.html" %}
+
+{% block contenido %}
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>Quienes somos?</h2>
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <p class="lead">
+                        PAGAPANA es un servicio conceptual, desarrollado en el marco de un curso
+                        programaci&oacute;n y emprendimiento de la comunidad IDEA Network y que sirvi&oacute;
+                        como ejemplo en clases de desarrollo de MVPs con Python/Django.
+                    </p>
+                    <p>
+                        Ernesto Freyre G, Desarrollador radicado en Ecuador desde el 2009. Instructor
+                        del Curso de Programaci&oacute;n con Python/Django. Al terminarse el curso se
+                        termin&oacute; de desarrollar y completar el mismo a modo
+                        demostrativo de como pudiera funcionar un servicio de Boton de Pagos Online
+                        en Ecuador.
+                    </p>
+                    <p>La mayor&iacute;a de los sitios de e-commerce en Ecuador carecen de las herramientas
+                        financieras para poder permitir que este tipo de servicios prolifere en el pa&iacute;s.
+                        Un boton de pagos es esencial para realizar compras en linea.</p>
+                    <br/>
+                    <p class="piedefirma">
+                        <img src="/static/img/ernesto.jpg" class="img-circle">
+                        <span class="nombre">Ernesto Freyre G.</span><br/>
+                        <span class="titulo">Desarrollador de Software</span><br/>
+                        <a href="mailto:ernesto.freyre@oksoftwr.com">ernesto.freyre@oksoftwr.com</a>
+                    </p>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <p class="text-muted">Algunas tecnolog&iacute;as utilizadas en el desarrollo de este servicio.</p>
+                    <div class="row tecnologias">
+                        <div class="col-lg-4 col-sm-4 col-xs-4">
+                            <img src="/static/img/python-logo.png"/>
+                        </div>
+                        <div class="col-lg-4 col-sm-4 col-xs-4">
+                            <img src="/static/img/django-logo.png"/>
+                        </div>
+                        <div class="col-lg-4 col-sm-4 col-xs-4">
+                            <img src="/static/img/postgresql_logo.png"/>
+                        </div>
+                    </div>
+                    <div class="row tecnologias">
+                        <div class="col-lg-4 col-lg-offset-2  col-sm-4 col-sm-offset-2  col-xs-4 col-xs-offset-2">
+                            <img src="/static/img/bootstrap2_logo.png"/>
+                        </div>
+                        <div class="col-lg-4 col-sm-4 col-xs-4">
+                            <img src="/static/img/jquery_logo.png"/>
+                        </div>
+                    </div>
+
+                    <div class="row spaceupbig patrocinadores">
+                        <div class="col-lg-12 col-md-12">
+                            <h3>Patrocinadores:</h3>
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 text-center">
+                                    <img src="/static/img/ideanetwork.png"/><br/>
+                                    <span class="lead" style="font-size: 16px;">IDEA Network</span> <br/>
+                                    <span class="text-muted">Red de emprendedores Ecuatorianos</span>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 text-center">
+                                    <img src="/static/img/inventio.png"/><br/>
+                                    <span class="lead" style="font-size: 16px;">INVENTIO ESPOL E.P.</span> <br/>
+                                    <span class="text-muted">Comercializadora de Tecnolog&iacute;as y Hosting</span>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 text-center">
+                                    <img src="/static/img/oksofastlogo.png"/><br/>
+                                    <span class="lead" style="font-size: 16px;">OKSOFAST S.A.</span><br/>
+                                    <span class="text-muted">Desarrollo de Software y Cloud Solutions</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,130 @@
+{% extends "panel.html" %}
+
+{% block contenido %}
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>API</h2>
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <p class="lead">Todos aman una buena API para integrar la funcionalidad de un servicio en otro y
+                        lograr mejores experiencias.</p>
+                    <p>La API de PAGAPANA le permitir&aacute; integrar su sitio web o aplicaci&oacute;n
+                        de ventas electr&oacute;nicas. A trav&eacute;s de la misma puedes ingresar nuevas operaciones
+                        y obtener el URL de pago de las mismas para redirigir a sus clientes.</p>
+                    <p>Tambi&eacute;n es posible obtener respuesta desde PAGAPANA con los resultados de la
+                        operaci&oacute;n.</p>
+                    <p>Todos los requerimientos a la API deberean ser realizados mediante HTTP POST con los
+                    datos enviados en formato <a href="http://www.json.org">JSON</a>. La respuesta del servidor
+                        sera en el mismo formato.</p>
+                    <p>Los valores monetarios deberan ser enviados como cadena de texto.</p>
+
+                    <table class="spaceupbig metodosapi" width="100%">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <h4>http://pagapana.tk/api/create</h4>
+                                    <p class="text-muted">Crear una nueva Operacion de Pago</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="fa fa-arrow-up"></i> Requerimiento
+<pre>
+{ "apikey": "756d481eabdf1d7242ead1eaaed47343234c0098",
+  "valor": "10.00",
+  "descripcion": "Venta Articulo X" }
+</pre>
+                                    <i class="fa fa-arrow-down"></i> Respuesta Correcta
+<pre>
+{ "url": "http://pagapana.tk/1234567890",
+  "weburl": "1234567890" }
+</pre>
+                                    <i class="fa fa-ban"></i> Error
+<pre>
+{ "error": "Mensaje de Error..." }
+</pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4>http://pagapana.tk/api/query</h4>
+                                    <p class="text-muted">Consultar una Operacion de Pago</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="fa fa-arrow-up"></i> Requerimiento
+<pre>
+{ "apikey": "756d481eabdf1d7242ead1eaaed47343234c0098",
+  "weburl": "1234567890" }
+</pre>
+                                    <i class="fa fa-arrow-down"></i> Respuesta Correcta
+<pre>
+{ "fecha": "23-11-2013 14:20",
+  "weburl": "1234567890",
+  "descripcion": "Venta Articulo X",
+  "valor": "10.00",
+  "pagos": [ { "fecha": "23-11-2013 14:21",
+               "valor": "9.75",
+               "cliente": "Juan Perez",
+               "identificacion": "0926091622",
+               "tipoidentificacion": "CEDULA" } ]
+ }
+</pre>
+                                    <i class="fa fa-ban"></i> Error
+<pre>
+{ "error": "Mensaje de Error..." }
+</pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4>http://pagapana.tk/api/info</h4>
+                                    <p class="text-muted">Informaci&oacute;n de Cuenta</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="fa fa-arrow-up"></i> Requerimiento
+<pre>
+{ "apikey": "756d481eabdf1d7242ead1eaaed47343234c0098" }
+</pre>
+                                    <i class="fa fa-arrow-down"></i> Respuesta Correcta
+<pre>
+{ "cliente": "Ernesto Freyre G.",
+  "identificacion": "0928833843",
+  "tipoidentificacion": "CEDULA",
+  "saldo": "122.90" }
+</pre>
+                                    <i class="fa fa-ban"></i> Error
+<pre>
+{ "error": "Mensaje de Error..." }
+</pre>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    {% if cliente %}
+                        <h4>API Key</h4>
+                        <p class="text-muted">Clave privada que identifica a su negocio en el sistema cuando utilice la API.</p>
+                        <div class="row well well-sm">
+                            <div class="col-lg-8">
+                                <span class="apikey">{{ cliente.api_key.key }}</span>
+                            </div>
+                            <div class="col-lg-4">
+                                <a href="/api/renew" class="btn btn-sm btn-danger">Regenerar Clave</a>
+                            </div>
+                        </div>
+
+                    {% else %}
+
+
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

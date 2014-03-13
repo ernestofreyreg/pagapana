@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>pagapana - Pagos Online en Ecuador</title>
+
+
+    <link href="/static/css/bootstrap.css" rel="stylesheet"/>
+    <link href="/static/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="/static/css/misestilos.css" rel="stylesheet"/>
+    <link href="/static/img/favicon.png" rel="shortcut icon"/>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+
+    {% block heading %}
+    {% endblock %}
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45982080-1', 'pagapana.tk');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+
+<body class="">
+
+<div id="wrap">
+    {% block navbar %}
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/"><img src="/static/img/topbarlogo.png" style="height: 25px;"/></a>
+            </div>
+
+            <div class="navbar-collapse collapse">
+                {% block panelusuario %}
+
+                    <form class="navbar-form navbar-right" action="/login" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" name="usuario" placeholder="Correo" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="clave" placeholder="Clave" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-success">Entrar</button>
+                    </form>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/olvido" class="btn btn-link">Olvide mis credenciales</a></li>
+                    </ul>
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+
+    <!-- Begin page content -->
+    <div class="container">
+        {% block contenido %}
+        <div class="row">
+            <div class="col-lg-8 col-md-8" id="slogan">
+                <div class="page-header">
+                    <h1>La forma m&aacute;s divertida de pagarle a los panas<sup>*</sup></h1>
+                </div>
+                <p class="lead">
+                    Compartir compras con los panas en Internet ya es posible.
+                    Paga productos y servicios o realiza transferencias a trav&eacute;s de Internet, Correo o Twitter.</p>
+                <p><sup>*</sup>panas o cualquier hijo de vecino que quiera venderte algo<br/>
+                    Este es un servicio conceptual, no implica obligaciones a sus usuarios (por ahora...)</p>
+                <br/>
+                <br/>
+                <img src="/static/img/pagos.png"/>
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <form method="POST" action="/registro" class="well-sm well spaceupbig">
+                    {% if messages %}
+                        {% for message in messages %}
+                            {% ifequal message.tags "error" %}
+                            <div class="alert alert-danger">{{ message }}</div>
+                            {% endifequal %}
+                        {% endfor %}
+                    {% endif %}
+                    <h3>Registro</h3>
+                    {% csrf_token %}
+                    {{ formulario_registro.as_p }}
+                    <button class="btn btn-lg btn-primary" type="submit">Registrarme</button>
+                </form>
+
+                <div class="row spaceuphalf">
+                <div class="col-lg-12">
+                    {% include "menu.html" %}
+                </div>
+            </div>
+
+            </div>
+        </div>
+
+        {% endblock %}
+
+    </div>
+</div>
+
+<div id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-8">
+                <p class="text-muted credit">PAGAPANA es un servicio demostrativo. <a href="mailto:pagapanaservicio@gmail.com"><i class="fa fa-envelope"></i> pagapanaservicio@gmail.com</a> o <a href="http://twitter.com/pagapana"><i class="fa fa-twitter-square"></i>/pagapana</a>.</p>
+            </div>
+            <div class="col-lg-4 col-md-4 patrocinios text-right hidden-sm">
+                <img src="/static/img/ideanetwork.png"/>
+                <img src="/static/img/inventio.png"/>
+                <img src="/static/img/oksofastlogo.png"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
